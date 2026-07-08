@@ -1,0 +1,31 @@
+# MSCIT-204: Fundamental of Computer Networking
+## True or False / Do As Directed
+
+### True or False (From Papers)
+1.  The OSI model protocol is the standard against which protocols are judged. (**True**) (Aug 2022)
+2.  A hub connects two different LANs. (**False** - a router or bridge connects different LANs; a hub is a central connection point in a single LAN) (Aug 2022, July 2025)
+3.  A LAN is connected to a large geographical area. (**False** - LAN is for local/small areas; WAN is for large areas) (Aug 2022, July 2025)
+4.  A switch can work in place of a hub. (**True**) (Aug 2022)
+5.  HTTPS is a secure protocol. (**True**) (Aug 2022)
+6.  Full duplex communication mode supports two way traffic but in only one direction at a time. (**False** - that is Half Duplex; Full Duplex is simultaneous two-way) (Jan 2023)
+7.  Dynamic routing is also known as Adaptive routing. (**True**) (Jan 2023)
+8.  A peer-to-peer network is the most complicated type of network. (**False** - it is usually the simplest) (July 2023)
+9.  Microwave is one type of radio transmission. (**True**) (July 2023)
+10. Bandwidth can’t be measured in GBPS. (**False** - it can be) (July 2023)
+11. Web servers are also known as application servers. (**True** - in many contexts, though they have subtle differences) (July 2025)
+12. The full form of OSI is Ordinary Systems Interconnection. (**False** - it is Open Systems Interconnection) (July 2025)
+13. A wire in the network influences another wire, and then crosstalk noise is produced. (**True**) (July 2025)
+14. A modem is the short form of modulator-demodulator. (**True**) (July 2025)
+15. Default Routing is used when networks are arranged with a single exit end. (**True**) (July 2025)
+
+### Do As Directed / Full Forms
+16. **In _____________ based network, resources are located on a central server.** - Client/Server. (Aug 2022)
+17. **A __________ is a set of rules that controls data communication.** - Protocol. (Aug 2022)
+18. **__________ cable is used in telephone connections.** - Twisted Pair (UTP). (Aug 2022)
+19. **ISO stands for:** International Organization for Standardization. (Aug 2022)
+20. **MIME stands for:** Multipurpose Internet Mail Extensions. (Jan 2023)
+21. **SMTP stands for:** Simple Mail Transfer Protocol. (Jan 2023)
+22. **What is a Node in Network?** The point of intersection or a connection point in a network. (Jan 2023)
+23. **What is VPN?** Virtual Private Network - allows users to send and receive data across shared or public networks as if their computing devices were directly connected to the private network. (Jan 2023)
+24. **Which cable is appropriate exposed to electrical interference?** Fiber optic (it uses light). (Jan 2023)
+25. **IEEE 802.11 defines:** Wireless Local Area Network (Wi-Fi). (July 2025)

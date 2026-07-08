@@ -1,0 +1,18 @@
+# MSCIT-205: Cloud Infrastructure and Services
+## 10-Mark Questions (Important for Exam)
+
+1.  **⭐⭐⭐ Cloud Layered Architecture:** Explain Cloud Computing Layers / Layered Architecture in detail. (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+2.  **⭐⭐⭐ Cloud Computing Characteristics:** Explain different characteristics of cloud computing (Elasticity, Scalability, Multi-tenancy, etc.). (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+3.  **⭐⭐⭐ Cloud Service Models:** Explain Service Models (SaaS, PaaS, IaaS) in detail. Discuss benefits and features of each. (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+4.  **⭐⭐⭐ Types of Cloud / Deployment Models:** Explain types of cloud (Public, Private, Hybrid, Community). Discuss their advantages. (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+5.  **⭐⭐⭐ DBaaS & Cloud Data:** What is DBaaS? Explain its architecture. Discuss challenges related to cloud data. (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+6.  **⭐⭐⭐ Cloud Application Development:** Explain cloud application requirements and the SDLC steps involved in cloud application software development. (Repeated: Aug 2022, July 2023, July 2025)
+7.  **⭐⭐⭐ Cloud Migration:** What is cloud migration? Discuss the challenges and best practices to ensure smooth migration. (Repeated: July 2025)
+8.  **⭐⭐⭐ SOA based Cloud Applications:** Write a short note on Service Oriented Architecture (SOA) based cloud applications. (Repeated: July 2023, July 2025)
+9.  **⭐⭐⭐ Cloud Security:** Explain Cloud Security risks, issues, and security risk analysis. Discuss best practices for cloud application security. (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+10. **⭐⭐ Virtualization:** Explain virtualization in detail. Discuss Full, Para, and Hardware-assisted virtualization. (Repeated: July 2023, July 2025)
+11. **⭐⭐ Grid Computing:** Write a short note on GRID Computing and its comparison with Cloud. (Repeated: Aug 2022, July 2025)
+12. **⭐⭐ Distributed vs Grid vs Cluster vs Cloud:** Compare distributed systems, grid computing, cluster computing, and cloud computing with examples. (Repeated: July 2025)
+13. **⭐⭐ Cloud Services Brokerage (CSB):** Discuss in brief about Cloud Services Brokerage (CSB). (Repeated: July 2023, July 2025)
+14. **⭐⭐ Security as a Service (SecaaS):** Explain the benefits and features of Security as a Service. (Repeated: Aug 2022, July 2025)
+15. **⭐⭐ Cloud Application Security Best Practices:** Discuss best practices for securing cloud applications. (Repeated: Aug 2022, July 2023)

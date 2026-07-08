@@ -1,0 +1,18 @@
+# MSCIT-202: Web Application Development – LAMP
+## 10-Mark Questions (Important for Exam)
+
+1.  **⭐⭐⭐ Open Source Software:** Define Open Source Software (OSS). Discuss the advantages and disadvantages (pros and cons) of OSS. (Repeated: Aug 2022, Jan 2023, July 2025)
+2.  **⭐⭐⭐ Linux File Permissions:** Discuss file permissions in a Linux system. Explain how to manage permissions with commands like `chmod`, `chown`, and `chgrp`. (Repeated: Aug 2022, July 2023, July 2025)
+3.  **⭐⭐⭐ MySQL Datatypes:** List and explain different datatypes available in MySQL in detail. (Repeated: Aug 2022, Jan 2023, July 2025)
+4.  **⭐⭐⭐ SQL Sub-languages:** Briefly explain sub-languages of SQL (DDL, DML, DCL, TCL) with examples of each. (Repeated: Aug 2022, Jan 2023, July 2025)
+5.  **⭐⭐⭐ PHP-MySQL Operations:** Explain database manipulation/manipulation operations (Insert, Select, Update, Delete) in PHP with suitable examples. (Repeated: Aug 2022, Jan 2023)
+6.  **⭐⭐⭐ HTTP Methods (GET vs POST):** Give a detailed comparison of HTTP methods GET and POST. Discuss when to use each. (Repeated: Aug 2022, July 2023, July 2025)
+7.  **⭐⭐⭐ PHP File Handling & Inclusion:** Explain how to perform file handling in PHP. Discuss functions used to include one PHP file into another (`include`, `require`). (Repeated: Jan 2023, July 2023, July 2025)
+8.  **⭐⭐⭐ User-Defined Functions:** Describe in brief about User-defined Functions (UDF) in PHP. What are the rules for creating a UDF? (Repeated: Jan 2023, July 2023, July 2025)
+9.  **⭐⭐⭐ PHP Cookies & Sessions:** Describe the steps to store and manage form data using Cookies and Sessions in PHP. (Repeated: July 2023, July 2025)
+10. **⭐⭐ Data Validation in PHP:** Write a detailed note on data validation and sanitization in PHP. (Repeated: Jan 2023)
+11. **⭐⭐ Exception Handling in PHP:** Write a short note on Exception handling in PHP with an example. (Repeated: July 2023)
+12. **⭐⭐ String Handling Functions:** List and explain common string handling functions in PHP (e.g., `strlen`, `strpos`, `trim`). (Repeated: July 2025)
+13. **⭐⭐ Linux Administration Tools:** List and explain system administrative tools for Linux. (Repeated: Aug 2022, July 2025)
+14. **⭐⭐ PHP Arrays:** Explain how to declare, use, and store data in arrays in PHP (Indexed vs Associative). (Repeated: Jan 2023, July 2023)
+15. **⭐⭐ SQL Transaction Control (TCL):** What is the need for Transaction Control Language? Explain `COMMIT` and `ROLLBACK` in brief. (Repeated: July 2023)

@@ -1,0 +1,31 @@
+# MSCIT-203: Object Oriented Analysis and Design using UML
+## True or False / Do As Directed
+
+### True or False (From Papers)
+1.  Programming language should be capable of supporting the modularity. (**True**) (Aug 2022)
+2.  Primary objective of UML system design is to represent the software architecture. (**True**) (Aug 2022)
+3.  Design patterns can be classified by scope, which specifies whether the pattern applies primarily to classes or to objects. (**True**) (Aug 2022)
+4.  Builder pattern is used to construct an object step by step and the final object is returned in last step. (**True**) (Aug 2022)
+5.  Web development and software development are one and the same thing. (**False** - WebE has specific characteristics like network intensiveness and concurrency) (Jan 2023)
+6.  UML does not tell you how to develop software. (**True** - it's a modeling language, not a methodology) (Jan 2023)
+7.  A Synchronous message does not wait for a reply from the receiver. (**False** - Synchronous message *waits* for a reply) (Jan 2023, July 2025)
+8.  A lifeline depicts a single participant in a given interaction. (**True**) (Jan 2023, July 2023, July 2025)
+9.  Sequence diagrams focus on the order in which the messages are sent. (**True**) (July 2023, July 2025)
+10. BOUML tool is a Java-based UML engineering tool. (**True**) (July 2023)
+11. Decorator pattern allows adding new functionality without altering its structure. (**True**) (July 2023)
+12. Encapsulation is a process of information or data hiding. (**True**) (July 2023, July 2025)
+13. Coupling is an indication of interconnection between modules. (**True**) (July 2023)
+14. A class is the type of data structure where you can define properties and behavior. (**True**) (July 2023)
+15. A design pattern used to enhance the functionality of an object is called an adapter. (**False** - that is Decorator; Adapter allows incompatible interfaces to work together) (July 2025)
+16. Both Sequence and collaboration are kinds of interaction diagrams. (**True**) (July 2025)
+17. Collaboration diagrams are mainly used in the object-oriented Analysis phase. (**True**) (July 2025)
+18. The State diagram defines the dynamic behavior of the WebApp. (**True**) (July 2025)
+19. A timing diagram allows for forward and reverse engineering. (**True**) (Jan 2023, July 2025)
+20. Architecture design refers to the overall hypermedia structure for the WebApp. (**True**) (July 2025)
+
+### Short Definitions
+21. **Full form: OOD** - Object Oriented Design. (Jan 2023)
+22. **What is a class?** A blueprint or template for creating objects, defining properties (data) and behavior (methods). (Jan 2023, July 2023)
+23. **Pattern template:** Provides a standard for describing a design pattern. (Aug 2022)
+24. **The "Three Amigos" of UML:** Grady Booch, James Rumbaugh, Ivar Jacobson. (July 2023)
+25. **CRC Cards:** Class-Responsibility-Collaborator cards. (Aug 2022, Jan 2023, July 2025)

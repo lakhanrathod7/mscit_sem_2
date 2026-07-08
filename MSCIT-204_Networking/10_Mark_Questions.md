@@ -1,0 +1,18 @@
+# MSCIT-204: Fundamental of Computer Networking
+## 10-Mark Questions (Important for Exam)
+
+1.  **⭐⭐⭐ Networking Components:** What is Networking? Explain its components in detail. (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+2.  **⭐⭐⭐ OSI Reference Model:** Explain the OSI Reference Model in detail with all 7 layers and their functions. (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+3.  **⭐⭐⭐ Transmission Media:** Explain Guided (Coaxial, Twisted Pair, Fiber Optic) and Unguided (Wireless) media in detail. (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+4.  **⭐⭐⭐ Network Topologies:** Define Topology. Explain different types of network topologies (Star, Mesh, Bus, Ring, Tree) with diagrams. (Repeated: Aug 2022, Jan 2023, July 2025)
+5.  **⭐⭐⭐ Switching & Routing:** Explain Switching and Routing in networks. Compare Circuit Switching vs Packet Switching. (Repeated: Aug 2022, Jan 2023, July 2023)
+6.  **⭐⭐⭐ TCP/IP Model:** List the layers of the TCP/IP model and explain any two in detail. (Repeated: July 2023)
+7.  **⭐⭐⭐ IEEE Standards:** Explain IEEE Standards (802.3, 802.11) in detail. (Repeated: Aug 2022, July 2025)
+8.  **⭐⭐⭐ Internet & Intranet Services:** Explain internet and intranet services in detail. (Repeated: Aug 2022, July 2025)
+9.  **⭐⭐⭐ Distance Vector Routing:** Elaborate in detail about the Distance Vector Routing algorithm. (Repeated: Jan 2023, July 2025)
+10. **⭐⭐⭐ Twisted Pair Cables:** Explain about Twisted Pair Cables (UTP/STP) in detail. (Repeated: July 2023, July 2025)
+11. **⭐⭐ Local Area Network (LAN):** Explain Local Area Network in detail. (Repeated: Aug 2022)
+12. **⭐⭐ Communication Theory:** Explain the fundamentals of Communication Theory in detail. (Repeated: Aug 2022)
+13. **⭐⭐ Connectivity Devices:** Explain connectivity devices (Hub, Switch, Router, Bridge, Gateway) in detail. (Repeated: Aug 2022)
+14. **⭐⭐ Transmission Impairment:** Explain transmission impairment (Attenuation, Distortion, Noise) in detail. (Repeated: Jan 2023)
+15. **⭐⭐ Network Layers Conceptualization:** Explain the conceptualizing of layers of the OSI model in detail. (Repeated: Aug 2022)

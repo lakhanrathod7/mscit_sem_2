@@ -1,0 +1,31 @@
+# MSCIT-202: Web Application Development – LAMP
+## True or False / Do As Directed
+
+### True or False (From Papers)
+1.  Die function combines the echo and exit function in one. (**True**) (Aug 2022)
+2.  Break statement sends control to the header of the loop. (**False** - it exits the loop; `continue` sends control to the header) (Aug 2022)
+3.  Switch…case statement is used to evaluate equality only. (**True**) (Aug 2022)
+4.  In command `chmod 754 abc.txt` we are giving read, write and execute permission to the group. (**False** - 5 is read and execute, not write) (Aug 2022)
+5.  In PHP multi-line comment is done by #. (**False** - # is for single-line; `/* */` is for multi-line) (Aug 2022)
+6.  PHP stands for Hypertext Preprocessor. (**True**) (Aug 2022)
+7.  Create table is a kind of DDL statement. (**True**) (Aug 2022)
+8.  Revoke, Grant are kind of TCL statements. (**False** - they are DCL; COMMIT/ROLLBACK are TCL) (Aug 2022)
+9.  MySQL is an open source relational database management system. (**True**) (Jan 2023)
+10. SQL is a programming language used to communicate with an RDBMS. (**True**) (Jan 2023)
+11. DML defines commands used in the creation and modification of schema objects. (**False** - that is DDL) (Jan 2023)
+12. In PHP, variables must start with an underscore `_` character. (**False** - they must start with `$`) (July 2025)
+13. The `explode()` function in PHP is used to split a string into an array. (**True**) (July 2025, July 2023)
+14. `$_POST` is used to retrieve form data sent via the GET method. (**False** - `$_GET` is used) (July 2025)
+15. Linux is a closed-source operating system. (**False**) (July 2025)
+16. A session is a global variable stored on the server. (**True**) (July 2023)
+17. The LIKE clause is used to compare a value to similar values using wildcard operators. (**True**) (July 2023)
+18. `strlen()` returns the length of the string. (**True**) (July 2023)
+19. `require` statement will produce a fatal error and stop the script upon failure. (**True**) (July 2023)
+
+### Short Definitions
+20. **What is Referential Integrity?** A property of data which, when satisfied, requires every value of one attribute of a relation to exist as a value of another attribute in a different (or same) relation. (Aug 2022, July 2023)
+21. **What is a Primary Key?** A unique identifier for a record in a database table. (Aug 2022, July 2023)
+22. **What is a Cookie?** A small piece of data stored on the user's computer by the web browser while browsing a website. (July 2025)
+23. **XAMPP stands for:** X (Cross-platform), Apache, MariaDB, PHP, Perl. (Aug 2022)
+24. **PDO stands for:** PHP Data Objects. (July 2023)
+25. **UDF stands for:** User Defined Function. (July 2025)

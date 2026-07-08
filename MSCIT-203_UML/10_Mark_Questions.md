@@ -1,0 +1,18 @@
+# MSCIT-203: Object Oriented Analysis and Design using UML
+## 10-Mark Questions (Important for Exam)
+
+1.  **⭐⭐⭐ UML Diagram Types:** Narrate in detail about different types of diagrams in UML. Explain structural vs behavioral diagrams. (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+2.  **⭐⭐⭐ Sequence Diagram:** Write a detailed note on Sequence Diagrams. Explain its notations (lifelines, messages) and draw an example for a specific process (e.g., User Login). (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+3.  **⭐⭐⭐ Interaction Diagrams:** Write a detailed note on Interaction Diagrams. List and explain the different types (Sequence, Communication, Timing, Interaction Overview). (Repeated: Aug 2022, Jan 2023, July 2025)
+4.  **⭐⭐⭐ Use Case Diagrams:** Explain Use Case diagrams in great detail with examples. Discuss actors and their relationships. (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+5.  **⭐⭐⭐ Web Engineering:** Discuss in detail Web Engineering and various attributes/characteristics of web-based systems. (Repeated: Aug 2022, Jan 2023, July 2023, July 2025)
+6.  **⭐⭐⭐ Design Patterns:** Explain Creational, Structural, and Behavioral patterns in detail. Discuss specific examples like Builder, Observer, or Decorator. (Repeated: Aug 2022, Jan 2023, July 2023)
+7.  **⭐⭐⭐ Class Diagram:** Explain Class Diagrams with proper examples. Discuss attributes, operations, and relationships. (Repeated: Jan 2023, July 2023)
+8.  **⭐⭐⭐ OOAD Concepts:** Explain elements and features of Object-Oriented Programming (Abstraction, Encapsulation, Inheritance, Polymorphism). Discuss the Object Relationship Model. (Repeated: Aug 2022, Jan 2023, July 2023)
+9.  **⭐⭐ Web Design Pyramid:** Narrate about the design pyramid for Web engineering (Aesthetic, Content, Architecture, Navigation, Interface, Component design). (Repeated: Jan 2023, July 2023, July 2025)
+10. **⭐⭐ UML Modeling Tools:** Describe various UML Modeling Tools in brief and their applications. (Repeated: Aug 2022, Jan 2023)
+11. **⭐⭐ Collaboration/Communication Diagram:** Explain Communication or Collaboration diagrams with an example and notation. (Repeated: Jan 2023, July 2023)
+12. **⭐⭐ Object-Oriented Analysis Model:** Explain generic components of the object-oriented analysis model. (Repeated: July 2025)
+13. **⭐⭐ Object Design Process:** Discuss a brief about the Object Design Process. (Repeated: July 2025)
+14. **⭐⭐ Requirement Analysis for WebApps:** Explain the requirement analysis process specifically for web-based applications. (Repeated: Jan 2023)
+15. **⭐⭐ Message Categories:** Describe different categories of messages in interaction diagrams (Synchronous, Asynchronous, Reply, etc.). (Repeated: July 2023)
