@@ -59,3 +59,89 @@
 8. Multi-tenancy means sharing resources among many users.
 9. Grid computing is the same as Cloud computing.
 10. PaaS provides a development environment.
+
+---
+---
+
+# TOPPER'S SOLUTIONS (DETAILED EXAM FORMAT)
+
+## SECTION A: LONG ANSWERS (10 MARKS EACH)
+
+### Q1. Cloud Layered Architecture
+Cloud computing is structured into layers to provide abstraction and modularity.
+
+1.  **Hardware Layer (Datacenter):** The foundation consisting of physical servers, storage, and networking hardware.
+2.  **Infrastructure Layer (IaaS):** Uses virtualization to pool hardware resources and create Virtual Machines (VMs).
+3.  **Platform Layer (PaaS):** Provides OS, databases, and application frameworks. It abstracts server management.
+4.  **Application Layer (SaaS):** The top layer where end-user software (like Gmail) resides.
+5.  **Management Layer (Cross-cutting):** Handles billing, security policies, and resource monitoring across all layers.
+
+---
+
+### Q2. NIST Essential Characteristics
+1.  **On-demand Self-service:** Users can provision resources (like CPU time) automatically without calling the provider.
+2.  **Broad Network Access:** Services are available via the internet on any device (Mobile, Laptop).
+3.  **Resource Pooling:** Multiple customers share the same physical hardware via a multi-tenant model.
+4.  **Rapid Elasticity:** Resources can be scaled up or down instantly based on demand.
+5.  **Measured Service (Pay-per-use):** Resource usage is monitored and billed based on actual consumption.
+
+---
+
+### Q3. Cloud Service Models
+*   **IaaS (Infrastructure):** Provides virtualized hardware. *User:* System Admins. *Ex:* AWS EC2.
+*   **PaaS (Platform):** Provides a platform for building/testing apps. *User:* Developers. *Ex:* Google App Engine.
+*   **SaaS (Software):** Provides a complete application. *User:* End Users. *Ex:* Salesforce, Dropbox.
+
+---
+
+### Q5. Virtualization and Hypervisors
+**Definition:**
+Virtualization is the technology that creates a software-based (virtual) version of something, such as computing, storage, or networking.
+
+**Role of Hypervisor (VMM):**
+The Hypervisor is a software layer that manages and runs virtual machines. It partitions the physical hardware among multiple guest OSs.
+
+**Type-1 vs Type-2 Hypervisors:**
+*   **Type-1 (Bare Metal):** Runs directly on the physical hardware. Highly efficient. Use Case: Enterprise data centers (e.g., VMware ESXi).
+*   **Type-2 (Hosted):** Runs on top of an existing Operating System. Primarily used for testing/development. (e.g., Oracle VirtualBox).
+
+---
+
+## SECTION B: SHORT ANSWERS (5 MARKS EACH)
+
+### Q1. Cloud vs Grid Computing
+*   **Control:** Grid is decentralized (many owners); Cloud is centralized (one provider).
+*   **Purpose:** Grid is for one massive task (Scientific); Cloud is for many small tasks (Business).
+*   **Billing:** Grid is usually free for research; Cloud is pay-per-use.
+
+### Q6. Vertical vs Horizontal Scaling
+*   **Vertical (Scale Up):** Adding more power (CPU, RAM) to a single existing server. *Limit:* Hardware maximum.
+*   **Horizontal (Scale Out):** Adding more servers to the existing pool. *Limit:* Theoretically unlimited.
+
+---
+
+## SECTION C: OBJECTIVE ANSWERS
+
+### Part A: MCQs
+1.  **A.** National Institute of Standards and Technology
+2.  **B.** Virtual Machine Monitor
+3.  **C.** IaaS
+4.  **B.** PaaS
+5.  **C.** Rapid elasticity
+6.  **C.** Private
+7.  **C.** Cloud computing in general
+8.  **B.** VMM
+9.  **B.** PaaS
+10. **A.** Service Oriented Architecture
+
+### Part B: True or False
+1.  **True**
+2.  **False** (Private is more secure)
+3.  **True**
+4.  **True**
+5.  **True**
+6.  **True**
+7.  **True**
+8.  **True**
+9.  **False**
+10. **True**

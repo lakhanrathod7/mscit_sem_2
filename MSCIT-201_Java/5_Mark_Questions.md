@@ -27,55 +27,69 @@
 ## Detailed Answers (5-Mark Questions)
 
 ### 1. `this` Keyword in Java
-*   **Definition:** `this` is a reference variable in Java that refers to the "current object" within an instance method or a constructor.
-*   **Key Usages:**
+*   **Definition:** `this` is a reference variable that refers to the "current object"—the instance of the class whose method or constructor is being called.
+*   **Key Usages with Examples:**
     1.  **To refer to instance variables:** Used when a local variable (parameter) has the same name as an instance variable (Shadowing).
-        *   Example: `this.name = name;`
+        *   Example: `this.rollno = rollno;`
     2.  **To invoke current class constructor:** Known as "Constructor Chaining". Must be the first statement in the constructor.
-        *   Example: `this();` or `this(10);`
-    3.  **To invoke current class method:** If you don't use `this`, the compiler automatically adds it.
-    4.  **To pass as an argument:** Can be passed as an argument in a method call or constructor call.
-*   **Constraint:** Cannot be used in `static` methods because static methods are called without any object.
+        *   Example: `this();` calls the default constructor; `this(5);` calls a parameterized one.
+    3.  **To invoke current class method:** Useful if you want to explicitly show a method call is on the current object, though the compiler adds it automatically.
+    4.  **To pass as an argument:** `this` can be passed as an argument in a method call (e.g., `process(this);`).
+    5.  **To return the current class instance:** `return this;` is used in method chaining.
+*   **Constraint:** It cannot be used in `static` methods or static blocks because static members belong to the class, not to any specific instance.
 
 ### 2. Features of Java (Unique Selling Points)
-*   **Platform Independent:** Java uses the "Write Once, Run Anywhere" (WORA) principle. Java code is compiled into **Bytecode**, which runs on any machine equipped with a Java Virtual Machine (JVM).
-*   **Object-Oriented:** Everything in Java is an object. It supports core concepts like Encapsulation, Inheritance, and Polymorphism.
-*   **Simple:** The syntax is clean and based on C++. It removed confusing features like explicit pointers and operator overloading.
-*   **Secure:** Java runs inside a virtual machine (sandbox). It has no pointers to access private memory and includes a "Security Manager" to control access to system resources.
-*   **Robust:** Focuses on compile-time and runtime error checking. It has strong memory management (Garbage Collection) and handles exceptions strictly.
-*   **Multithreaded:** Java allows writing programs that can do many tasks simultaneously, improving performance for complex applications.
+*   **Object-Oriented:** Java follows the OOP paradigm, focusing on objects and classes. It supports core concepts like Abstraction, Encapsulation, Inheritance, and Polymorphism.
+*   **Platform Independent:** Java uses the "Write Once, Run Anywhere" (WORA) principle. Java code is compiled into **Bytecode**, which is platform-neutral. Any machine with a **JVM** (Java Virtual Machine) can run this bytecode.
+*   **Simple:** Removed confusing features of C++ like explicit pointers, operator overloading, and multiple inheritance (for classes). Its syntax is clean and easy to learn.
+*   **Secure:** Java provides a secure environment by running code inside a "sandbox" (JVM). It lacks pointers (preventing direct memory access) and has a "Security Manager" to define access rules.
+*   **Robust:** Focuses on compile-time and runtime error checking. It has a strong memory management system with **Automatic Garbage Collection** and handles exceptions strictly.
+*   **Multithreaded:** Supports concurrent execution of two or more parts of a program to maximum CPU utilization. It provides a built-in `Thread` class and `Runnable` interface.
 
 ### 3. Java Datatypes
 *   **Definition:** Datatypes define the size and type of values that can be stored in variables.
 *   **Classification:**
-    1.  **Primitive Datatypes:** Predefined by the language.
-        *   *Numeric (Integer):* `byte` (1 byte), `short` (2 bytes), `int` (4 bytes), `long` (8 bytes).
-        *   *Floating Point:* `float` (4 bytes), `double` (8 bytes).
-        *   *Character:* `char` (2 bytes, uses Unicode).
-        *   *Logical:* `boolean` (true/false).
-    2.  **Non-Primitive (Reference) Datatypes:** Created by the programmer (except String).
-        *   Classes, Interfaces, Arrays, and Strings. They store the memory address (reference) of the object.
+    1.  **Primitive Datatypes (Predefined):**
+        *   **Integer types:** `byte` (1 byte), `short` (2 bytes), `int` (4 bytes), `long` (8 bytes).
+        *   **Floating-point:** `float` (4 bytes), `double` (8 bytes).
+        *   **Character:** `char` (2 bytes, supports Unicode/international characters).
+        *   **Boolean:** `boolean` (stores `true` or `false`).
+    2.  **Non-Primitive (Reference) Datatypes:** Created by the programmer (except String). They store the memory address (reference) of the object.
+        *   **Classes:** Blueprint for objects (e.g., `Student`).
+        *   **Interfaces:** Contract for what a class can do.
+        *   **Arrays:** Group of similar typed variables.
+        *   **Strings:** Sequence of characters (it is a class in `java.lang`).
 
 ### 4. Constructors in Java
-*   **Definition:** A constructor is a special block of code that is automatically called when an object of a class is created. It has the same name as the class and no return type (not even `void`).
+*   **Definition:** A constructor is a special block of code that is automatically called when an object of a class is created. It initializes the object's state.
+*   **Rules:** It must have the same name as the class and no return type (not even `void`).
 *   **Types:**
-    1.  **Default Constructor:** Provided by Java if no constructor is written. It takes no arguments and initializes variables to default values (0, null).
-    2.  **No-Arg Constructor:** A programmer-defined constructor with no parameters.
+    1.  **Default Constructor:** Automatically provided by the Java compiler if no constructor is written. It initializes numeric variables to 0 and objects to `null`.
+    2.  **No-Arg Constructor:** A programmer-defined constructor that takes no parameters. Used to provide custom default values.
     3.  **Parameterized Constructor:** Takes arguments to initialize an object with specific data.
-*   **Constructor Overloading:** A class can have multiple constructors with different parameter lists.
-
-### 5. Subclass Constructor
-*   **Definition:** When an object of a subclass is created, the subclass constructor is called. However, it first implicitly calls the constructor of its superclass (parent).
-*   **The `super()` Keyword:**
-    *   Used to explicitly call a specific constructor of the superclass.
-    *   If not used, the compiler adds a default `super()` call as the first line of the subclass constructor.
+*   **Constructor Overloading:** Like method overloading, a class can have multiple constructors with different parameter lists.
 *   **Example:**
     ```java
-    class Parent { Parent() { System.out.println("Parent Created"); } }
+    class Box {
+        int w, h;
+        Box() { w = 10; h = 10; } // No-arg
+        Box(int s) { w = s; h = s; } // Parameterized
+    }
+    ```
+
+### 5. Subclass Constructor
+*   **Definition:** When an object of a subclass is created, the subclass constructor is called. However, it must first execute the constructor of its superclass (parent) to initialize inherited members.
+*   **The `super()` Keyword:**
+    *   Used to explicitly call a specific constructor of the superclass.
+    *   It **must** be the first statement in the subclass constructor.
+    *   If you don't write `super()`, the compiler automatically inserts a default `super()` call to the parent's no-arg constructor.
+*   **Example:**
+    ```java
+    class Parent { Parent() { System.out.println("Parent Init"); } }
     class Child extends Parent { 
         Child() { 
-            super(); // Optional, compiler adds it
-            System.out.println("Child Created"); 
+            super(); // Calls Parent constructor
+            System.out.println("Child Init"); 
         } 
     }
     ```
@@ -83,137 +97,154 @@
 ### 6. Method Overriding
 *   **Definition:** If a subclass provides a specific implementation for a method that is already defined in its superclass, it is called Method Overriding.
 *   **Rules:**
-    1.  The method name and parameters must be **exactly the same**.
-    2.  There must be an IS-A relationship (Inheritance).
-    3.  The access modifier of the overriding method cannot be more restrictive than the parent (e.g., if parent is `protected`, child cannot be `private`).
-*   **Usage:** Used to achieve **Runtime Polymorphism**. It allows a subclass to provide its own behavior while sharing the same method signature.
+    1.  The method name and parameters must be **exactly the same** (same signature).
+    2.  There must be an **Inheritance** (IS-A) relationship.
+    3.  The return type must be the same (or a subtype).
+    4.  Access modifier cannot be more restrictive (e.g., if parent is `protected`, child cannot be `private`).
+*   **Usage:** Used to achieve **Runtime Polymorphism**. It allows a subclass to provide its own behavior for a general method provided by the parent.
+*   **Example:** Parent class `Shape` has `draw()`; subclasses `Circle` and `Square` override `draw()` to draw specific shapes.
 
 ### 7. Nesting of Methods
-*   **Definition:** Nesting of methods is a technique where one method calls another method within the same class. In Java, methods cannot be defined *inside* another method, but they can be *invoked* from one another.
-*   **Purpose:** To break down a complex task into smaller, reusable steps.
+*   **Definition:** In Java, a method cannot be defined *inside* another method (no local functions), but a method can **invoke** (call) another method of the same class directly. This is called nesting of methods.
+*   **Working:** When one method is called, it performs part of the work and delegates the rest by calling another method.
 *   **Example:**
     ```java
-    class Box {
-        int length, width;
-        int area() { return length * width; }
-        void display() {
-            int a = area(); // Nesting call
-            System.out.println("Area is: " + a);
+    class Calc {
+        int square(int n) { return n * n; }
+        void display(int x) {
+            int result = square(x); // Nesting call
+            System.out.println("Result: " + result);
         }
     }
     ```
+*   **Purpose:** To improve code organization, reduce redundancy, and break complex tasks into smaller reusable units.
 
 ### 8. Multithreading & Thread States
-*   **Multithreading:** The ability of a CPU to execute multiple threads (lightweight processes) concurrently to maximize utilization.
-*   **Thread States (Life Cycle):**
-    1.  **New:** When a thread instance is created but `start()` is not called.
-    2.  **Runnable:** Ready to run and waiting for CPU time.
+*   **Multithreading:** The ability of a CPU to execute multiple threads (lightweight processes) concurrently. It allows a program to perform multiple tasks at the same time (e.g., downloading a file while typing in a document).
+*   **Thread Life Cycle (States):**
+    1.  **New:** Thread object created, but `start()` not called.
+    2.  **Runnable:** Ready to run and waiting for CPU time from the thread scheduler.
     3.  **Running:** Currently being executed by the processor.
-    4.  **Blocked/Waiting:** Waiting for a resource or another thread (e.g., during `sleep()` or I/O).
-    5.  **Dead (Terminated):** Execution is finished.
+    4.  **Blocked/Waiting:** Waiting for a resource (I/O) or another thread (via `sleep()`, `wait()`, or `join()`).
+    5.  **Terminated (Dead):** The `run()` method has finished execution.
+*   **Mechanism:** Achieved by extending the `Thread` class or implementing the `Runnable` interface.
 
 ### 9. Built-in Packages in Java
-*   **Definition:** Java provides a large library of pre-written classes grouped into packages.
-*   **Key Packages:**
-    1.  `java.lang`: Fundamental classes (String, Math, System). Imported automatically.
-    2.  `java.util`: Utility classes like `Scanner`, `Date`, and the Collection Framework.
-    3.  `java.io`: Classes for input and output operations (reading/writing files).
-    4.  `java.net`: Classes for networking (Sockets, URL).
-    5.  `java.awt`: Original GUI components (Button, Panel).
-    6.  `javax.swing`: Modern, lightweight GUI components.
+*   **Definition:** Packages are containers for classes that provide a naming space and access control.
+*   **Key Built-in Packages:**
+    1.  `java.lang`: Contains fundamental classes like `String`, `Math`, `System`, and wrapper classes. It is **imported automatically**.
+    2.  `java.util`: Contains utility classes like `Scanner`, `Date`, `Random`, and the entire **Collection Framework** (`ArrayList`, `HashMap`).
+    3.  `java.io`: Provides classes for input and output operations (reading/writing to files and streams).
+    4.  `java.net`: Contains classes for networking (Sockets, URL handling).
+    5.  `java.awt` / `javax.swing`: Used for creating Graphical User Interfaces (GUI) like windows, buttons, and text fields.
 
 ### 10. Error Types in Java
-*   **1. Compile-time Errors:** Syntax errors caught by the compiler (e.g., missing semicolon, using an undeclared variable). The program won't run until these are fixed.
-*   **2. Runtime Errors (Exceptions):** Occur during program execution (e.g., `ArithmeticException` like divide-by-zero, `NullPointerException`).
-*   **3. Logical Errors:** The program runs without crashing but gives the wrong output because the logic is incorrect (e.g., using `+` instead of `*` in a formula).
+*   **1. Compile-time Errors:** Caught by the compiler before the program runs.
+    *   *Causes:* Syntax errors (missing `;`, wrong spelling), using undeclared variables, or incompatible types.
+    *   *Effect:* Program will not generate a `.class` file.
+*   **2. Runtime Errors (Exceptions):** Occur during the execution of the program.
+    *   *Causes:* Logical flaws like dividing by zero (`ArithmeticException`), accessing a null object (`NullPointerException`), or array index out of bounds.
+    *   *Effect:* Program crashes abruptly if not handled using `try-catch`.
+*   **3. Logical Errors:** The program runs without crashing but gives the **wrong output**.
+    *   *Causes:* Incorrect logic (e.g., using `+` instead of `*` for area).
+    *   *Effect:* Hardest to find; requires debugging.
 
 ### 11. Java Collection Framework
-*   **Definition:** A unified architecture for representing and manipulating collections of objects (like lists, sets, and maps).
-*   **Hierarchy:**
-    *   **Interface:** `Collection` -> `List`, `Set`, `Queue`.
-    *   **List Implementation:** `ArrayList`, `LinkedList`, `Vector`. (Allows duplicates, maintains order).
-    *   **Set Implementation:** `HashSet`, `LinkedHashSet`. (No duplicates).
-    *   **Map (Separate):** `HashMap`, `TreeMap`. (Key-Value pairs).
-*   **Advantage:** Provides high-performance, standard data structures that reduce programming effort.
+*   **Definition:** A unified architecture (set of interfaces and classes) for representing and manipulating collections of objects.
+*   **Core Interfaces:**
+    *   **List:** Ordered, allows duplicates (e.g., `ArrayList`, `LinkedList`).
+    *   **Set:** Unordered, no duplicates allowed (e.g., `HashSet`, `TreeSet`).
+    *   **Map:** Key-Value pairs, unique keys (e.g., `HashMap`).
+*   **Hierarchy Diagram (Conceptual):**
+    `Collection (I) -> List (I), Set (I), Queue (I)`. `Map (I)` is a separate hierarchy.
+*   **Advantages:** Reduces programming effort, increases performance, and provides standard data structures that are highly optimized.
 
-### 12. Events in Java
-*   **Definition:** An event is an object that describes a state change in a source (e.g., a button click, a mouse movement).
-*   **Event Handling (Delegation Model):**
-    1.  **Event Source:** The UI component (e.g., `JButton`).
-    2.  **Event Object:** Encapsulates details of the event (e.g., `ActionEvent`).
-    3.  **Event Listener:** An interface that "listens" for the event and defines the action (e.g., `ActionListener`).
-*   **Common Listeners:** `MouseListener`, `KeyListener`, `WindowListener`.
+### 12. Events in Java (AWT/Swing)
+*   **Definition:** An event is an object that describes a state change in a source (e.g., a button click, a key press, or a mouse move).
+*   **Delegation Model Components:**
+    1.  **Event Source:** The UI component where the event happens (e.g., `JButton`).
+    2.  **Event Object:** Encapsulates the details (e.g., `ActionEvent` tells which button was clicked).
+    3.  **Event Listener:** An interface (e.g., `ActionListener`) that receives the event and performs an action.
+*   **Common Types:**
+    *   **Action Event:** Button click, Menu selection.
+    *   **Mouse Event:** Clicking, dragging, or moving the mouse.
+    *   **Key Event:** Pressing or releasing a key on the keyboard.
 
-### 13. String Class & Methods
-*   **Definition:** In Java, Strings are objects, not simple character arrays. They are **immutable**, meaning once created, their value cannot be changed.
-*   **Key Methods:**
-    1.  `length()`: Returns number of characters.
-    2.  `charAt(index)`: Returns char at specific position.
-    3.  `indexOf("str")`: Returns the first position of a substring.
-    4.  `equals(s)`: Compares content (case-sensitive).
-    5.  `substring(start, end)`: Extracts a part of the string.
-*   **Note:** Use `StringBuilder` if you need a string that can be modified frequently.
+### 13. String Class & Common Methods
+*   **Definition:** In Java, a String is an object of the `String` class. They are **immutable**, meaning once created, their value cannot be changed in memory.
+*   **Common Methods:**
+    1.  `length()`: Returns the number of characters.
+    2.  `charAt(index)`: Returns the character at a specific position.
+    3.  `indexOf("substring")`: Returns the index of the first occurrence of a string.
+    4.  `equals(s)`: Compares the **content** of two strings (case-sensitive).
+    5.  `substring(start, end)`: Extracts a portion of the string.
+    6.  `toLowerCase()` / `toUpperCase()`: Changes the case.
+*   **Note:** If you need a string that can be modified frequently, use `StringBuilder` or `StringBuffer`.
 
 ### 14. Command Line Arguments
-*   **Definition:** Arguments passed to a Java program during execution via the command prompt.
-*   **Mechanism:** They are stored in the `String[] args` array of the `main` method.
-*   **Example:** Running `java Test Hello 123`
-    *   `args[0]` will be "Hello"
-    *   `args[1]` will be "123"
-*   **Use Case:** Providing dynamic input to a program without changing the source code.
+*   **Definition:** Arguments passed to a Java program during its execution from the command prompt.
+*   **Mechanism:** They are stored as Strings in the `String[] args` array parameter of the `main` method.
+*   **Example:**
+    *   Run: `java Greet Amit 25`
+    *   Inside `main`: `args[0]` is "Amit", `args[1]` is "25".
+*   **Conversion:** Since they are strings, you must use wrapper class methods like `Integer.parseInt(args[1])` to convert them to numbers.
+*   **Use Case:** Passing configuration settings or input data without changing the source code.
 
-### 15. Vector Class
-*   **Definition:** A legacy class (part of `java.util`) that implements a growable array of objects. It is similar to `ArrayList` but is **synchronized**.
+### 15. Vector Class in Java
+*   **Definition:** Part of the `java.util` package, `Vector` implements a growable array of objects. It is part of the original Java API (Legacy class) but was retrofitted into the Collection Framework.
 *   **Key Features:**
-    1.  It is thread-safe (synchronized).
-    2.  It doubles its size when full (by default).
+    1.  **Dynamic Sizing:** It automatically doubles its size when the capacity is reached.
+    2.  **Synchronized:** It is **thread-safe**, meaning multiple threads can access it without causing data corruption.
+    3.  **Insertion Order:** It maintains the order in which elements were added.
 *   **Example:**
     ```java
     Vector v = new Vector();
-    v.add("Apple");
-    v.addElement("Banana");
-    System.out.println(v.get(0));
+    v.add("Java");
+    v.add(100); // Autoboxing
+    System.out.println(v.get(0)); // Prints Java
     ```
 
 ### 16. Exception Handling Keywords
-*   **try:** Used to wrap the code that might throw an exception.
-*   **catch:** Block used to handle the specific exception thrown.
-*   **finally:** Block that always executes, used for cleanup (like closing files).
-*   **throw:** Used to explicitly throw a single exception.
-*   **throws:** Used in method signature to declare which exceptions the method might throw.
+*   **try:** Used to enclose the code that might throw an exception. It must be followed by either `catch` or `finally`.
+*   **catch:** Used to handle the specific exception thrown in the `try` block. You can have multiple catch blocks.
+*   **finally:** A block that **always executes** (regardless of whether an exception occurred). Used for cleanup (closing files/databases).
+*   **throw:** Used to explicitly throw a single exception (e.g., `throw new ArithmeticException();`).
+*   **throws:** Used in a method signature to declare that the method might throw certain exceptions, forcing the caller to handle them.
 
 ### 17. Character vs Byte Streams
 *   **Byte Streams:**
-    *   Handles data byte-by-byte (8 bits).
-    *   Used for binary data like images and audio.
-    *   Classes: `FileInputStream`, `FileOutputStream`.
+    *   Data processed 8 bits (1 byte) at a time.
+    *   Used for binary data: Images, Audio, Video, Executables.
+    *   Main Classes: `InputStream`, `OutputStream` (and subclasses like `FileInputStream`).
 *   **Character Streams:**
-    *   Handles data character-by-character (16 bits Unicode).
-    *   Used for text files.
-    *   Classes: `FileReader`, `FileWriter`.
-*   **Rule:** Always use Character streams for text data as they handle international characters better.
+    *   Data processed 16 bits (2 bytes) at a time (Unicode).
+    *   Used for text files: `.txt`, `.html`, `.java`.
+    *   Main Classes: `Reader`, `Writer` (and subclasses like `FileReader`).
+*   **Rule:** Always use Character streams for reading/writing text as they automatically handle character encoding (Internationalization).
 
 ### 18. Wrapper Classes
-*   **Definition:** Wrapper classes provide a way to use primitive data types as objects.
-*   **Mapping:** `int` -> `Integer`, `char` -> `Character`, `double` -> `Double`, etc.
-*   **Why needed?** Because the Collection Framework (like `ArrayList`) can only store objects, not primitives.
-*   **Autoboxing:** Automatic conversion of primitive to wrapper (e.g., `Integer x = 5;`).
-*   **Unboxing:** Automatic conversion of wrapper to primitive.
+*   **Definition:** Wrapper classes provide a way to use primitive data types (`int`, `char`, etc.) as objects.
+*   **Mapping:** `int -> Integer`, `char -> Character`, `float -> Float`, `double -> Double`.
+*   **Why needed?**
+    1.  The Collection Framework (e.g., `ArrayList`) only works with objects, not primitives.
+    2.  They provide utility methods (e.g., `Integer.parseInt()`).
+*   **Autoboxing:** Automatic conversion of primitive to object (e.g., `Integer x = 5;`).
+*   **Unboxing:** Automatic conversion of object to primitive (e.g., `int y = x;`).
 
 ### 19. Abstract Class vs Final Class
 *   **Abstract Class:**
-    *   Declared with `abstract`.
-    *   **Cannot be instantiated.**
-    *   Can have both abstract (no body) and concrete methods.
-    *   **Purpose:** To be inherited and provide a template.
+    *   Keyword: `abstract`.
+    *   **Cannot be instantiated** (no object creation).
+    *   Can have both abstract (no body) and concrete (with body) methods.
+    *   **Purpose:** To be inherited and act as a template for subclasses.
 *   **Final Class:**
-    *   Declared with `final`.
-    *   **Cannot be inherited.** (Prevents extension).
-    *   All methods are implicitly final.
-    *   **Purpose:** For security and performance (e.g., `String` class).
+    *   Keyword: `final`.
+    *   **Cannot be inherited** (prevents subclassing).
+    *   All its methods are implicitly final.
+    *   **Purpose:** For security and performance (e.g., the `String` class is final).
 
 ### 20. Java Environment (JDK, JRE, JVM)
-*   **JVM (Java Virtual Machine):** An abstract machine that executes bytecode. It is the heart of platform independence.
-*   **JRE (Java Runtime Environment):** JVM + Libraries. It is what you need to **run** a Java program.
-*   **JDK (Java Development Kit):** JRE + Development Tools (like `javac` compiler, `jdb` debugger). It is what you need to **write and compile** Java programs.
-*   **Relationship:** JDK contains JRE, and JRE contains JVM.
+*   **JVM (Java Virtual Machine):** An abstract machine that executes Java bytecode. It provides a platform-independent environment for Java programs.
+*   **JRE (Java Runtime Environment):** Consists of the **JVM + Standard Libraries**. It provides the environment necessary to **run** a Java program.
+*   **JDK (Java Development Kit):** Consists of the **JRE + Development Tools** (like `javac` compiler, `jdb` debugger). It is required to **write and compile** Java programs.
+*   **Hierarchy:** JDK > JRE > JVM.

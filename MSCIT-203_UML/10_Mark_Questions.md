@@ -22,128 +22,156 @@
 ## Detailed Answers (10-Mark Questions)
 
 ### 1. UML Diagram Types (Structural vs Behavioral)
-*   **Structural Diagrams:** Show the static structure of a system (the "nouns" and their properties).
-    1.  **Class Diagram:** Most common; shows classes, attributes, methods, and relationships.
-    2.  **Object Diagram:** Shows a "snapshot" of instances at a specific point in time.
-    3.  **Component Diagram:** Shows software modules and their dependencies.
-    4.  **Deployment Diagram:** Shows the physical hardware nodes and where the software resides.
-*   **Behavioral Diagrams:** Show the dynamic behavior of a system (the "verbs" and actions).
-    1.  **Use Case Diagram:** Shows system functionality from an actor's perspective.
-    2.  **Activity Diagram:** Shows workflows and parallel processes (like a flowchart).
-    3.  **Interaction Diagrams:** (Sequence, Communication) Show message flow between objects.
-    4.  **State Machine Diagram:** Shows the life cycle of a single object (e.g., "Order Paid" -> "Shipped").
+The Unified Modeling Language (UML) defines several types of diagrams to visualize different aspects of a system. They are broadly classified into two categories:
+
+*   **Structural Diagrams (Static View):** They represent the static structure of the system—how it is built.
+    1.  **Class Diagram:** Shows the classes, their attributes, methods, and relationships. It is the most common diagram in OO modeling.
+    2.  **Object Diagram:** Shows instances of classes at a particular moment. Useful for modeling complex data structures.
+    3.  **Component Diagram:** Describes how the system is divided into physical components (like DLLs, JAR files) and their dependencies.
+    4.  **Deployment Diagram:** Shows the physical hardware nodes and the software components that run on them.
+    5.  **Package Diagram:** Shows how classes are grouped into packages and the dependencies between packages.
+*   **Behavioral Diagrams (Dynamic View):** They represent the dynamic behavior of the system—how it works over time.
+    1.  **Use Case Diagram:** Describes system functionality from the perspective of external users (Actors).
+    2.  **Activity Diagram:** Shows the flow of activities or workflows in a process, including parallel execution.
+    3.  **Interaction Diagrams:** (Sequence, Communication, Timing) Show how objects collaborate by exchanging messages.
+    4.  **State Machine Diagram:** Shows the lifecycle of a single object and how it changes state in response to events.
 
 ### 2. Sequence Diagrams (Notations & Example)
-*   **Definition:** An interaction diagram that emphasizes the **time ordering** of messages.
-*   **Notations:**
-    1.  **Actor:** Initiator of the sequence (Stick figure).
-    2.  **Lifeline:** Dashed vertical line; represents the object's existence.
-    3.  **Activation Bar:** Rectangle on lifeline; indicates the object is active.
-    4.  **Messages:** Horizontal arrows.
-        *   *Synchronous:* Filled arrowhead (caller waits).
-        *   *Asynchronous:* Open arrowhead (caller doesn't wait).
-        *   *Return:* Dashed line.
-*   **Example (Login):** User sends `input(id, pwd)` -> LoginController. Controller sends `validate()` -> Database. Database returns `success`.
+*   **Definition:** A Sequence Diagram is an interaction diagram that shows how processes operate with one another and in what order. It is highly effective for visualizing the logic of a single use case.
+*   **Key Notations:**
+    1.  **Actor:** Represented by a stick figure, showing an external initiator.
+    2.  **Lifeline:** A dashed vertical line representing the object's timeline.
+    3.  **Activation Bar:** A rectangle on the lifeline showing when the object is active.
+    4.  **Synchronous Message:** Solid line, filled arrowhead. Caller waits for response.
+    5.  **Asynchronous Message:** Solid line, open arrowhead. Caller does not wait.
+    6.  **Return Message:** Dashed line, open arrowhead. Returns data to the caller.
+*   **Example: User Login Process**
+    1.  User enters credentials on a `LoginForm`.
+    2.  `LoginForm` sends `login(username, password)` to a `LoginController`.
+    3.  `LoginController` sends `validate()` to a `UserDatabase`.
+    4.  `UserDatabase` returns `success` or `failure`.
+    5.  `LoginController` tells `LoginForm` to show the "Welcome" or "Error" screen.
 
-### 3. Interaction Diagrams (Detailed Types)
-*   **1. Sequence Diagram:** Focuses on the time-ordered sequence of message exchanges. Great for complex logic.
-*   **2. Communication (Collaboration) Diagram:** Focuses on the structural organization of objects. Messages are numbered (1, 1.1, 2) to show order.
-*   **3. Timing Diagram:** Shows the change in state of objects over a specific timeline. Used in real-time systems.
-*   **4. Interaction Overview Diagram:** A high-level view that uses activity diagram symbols to connect different sequence diagrams.
+### 3. Interaction Diagrams (Detailed Classification)
+Interaction diagrams are used to model the dynamic behavior of a system. There are four types:
+1.  **Sequence Diagram:** The most popular interaction diagram. It emphasizes the **time ordering** of messages. It uses vertical lifelines and horizontal messages.
+2.  **Communication Diagram (Collaboration):** Focuses on the **structural organization** of the objects. Objects are connected by links, and messages are numbered (e.g., 1, 1.1, 2) to show the order of execution. It is better for seeing the big picture of object connections.
+3.  **Timing Diagram:** Focuses on the **timing constraints** of messages. It shows how the state of an object changes over a linear timeline. Critical for real-time systems.
+4.  **Interaction Overview Diagram:** A high-level view that uses activity diagram symbols (Initial node, Decision diamond) to connect different sequence or communication diagrams. It shows the flow of control between interactions.
 
 ### 4. Use Case Diagrams (Actors & Relationships)
+A Use Case diagram captures the functional requirements of a system.
 *   **Components:**
-    1.  **Actors:** Human users or external systems interacting with the app.
-    2.  **Use Cases:** Specific goals (e.g., "Withdraw Money").
-    3.  **System Boundary:** A box enclosing use cases to define the scope.
+    *   **Actor:** Represents a role played by an external entity (User, Hardware, or another System) that interacts with the system.
+    *   **Use Case:** Represents a specific goal or functionality (e.g., "Withdraw Cash").
+    *   **System Boundary:** A rectangle enclosing the use cases, representing the scope of the software.
 *   **Relationships:**
-    *   **Association:** Line between actor and use case.
-    *   **Include (<<include>>):** A mandatory sub-task (e.g., "Withdraw Cash" *includes* "Validate PIN").
-    *   **Extend (<<extend>>):** An optional behavior (e.g., "Print Receipt" *extends* "Withdraw Cash").
+    *   **Association:** A simple line connecting an actor to a use case.
+    *   **Include (<<include>>):** Used when one use case contains common behavior from another (e.g., "Withdraw Cash" *includes* "Validate PIN"). The included use case is mandatory.
+    *   **Extend (<<extend>>):** Used for optional behavior (e.g., "Print Receipt" *extends* "Withdraw Cash" only if the user chooses to).
+    *   **Generalization:** An "is-a" relationship between actors or between use cases (e.g., "Registered User" is a generalization of "Admin").
 
-### 5. Web Engineering (WebE)
-*   **Definition:** A disciplined approach used to create high-quality WebApps.
-*   **Characteristics:**
-    1.  **Network Intensiveness:** Content must travel over the internet.
-    2.  **Concurrency:** Multiple users must be handled without performance loss.
-    3.  **Unpredictable Load:** Traffic can fluctuate massively.
-    4.  **Performance:** Users expect sub-second response times.
-    5.  **Aesthetics:** UI design is critical for engagement.
-    6.  **Security:** High exposure to global threats requires robust protection.
+### 5. Web Engineering (WebE) & Attributes
+Web Engineering is the application of systematic, disciplined, and quantifiable approaches to the development, operation, and maintenance of Web-based applications.
+*   **Attributes of WebApps:**
+    1.  **Network Intensiveness:** Content and functionality are delivered over a network to a diverse community of clients.
+    2.  **Concurrency:** Thousands of users may access the app simultaneously.
+    3.  **Unpredictable Load:** Traffic can spike suddenly (the "Flash Crowd" effect).
+    4.  **Performance:** Rapid response time is critical for user satisfaction.
+    5.  **Aesthetics:** Visual appeal is a primary requirement for engagement.
+    6.  **Data Driven:** Primary function is to manage and present large amounts of structured and unstructured data.
+    7.  **Security:** Being public, WebApps are highly vulnerable to global security threats.
 
 ### 6. Design Patterns (Creational, Structural, Behavioral)
-*   **1. Creational:** Focus on object creation (e.g., **Singleton** - only one instance; **Builder** - complex object construction).
-*   **2. Structural:** Focus on class/object composition (e.g., **Decorator** - adding functionality dynamically; **Adapter** - connecting incompatible interfaces).
-*   **3. Behavioral:** Focus on communication (e.g., **Observer** - 1-to-many notification; **Strategy** - interchangeable algorithms).
+A design pattern is a general, reusable solution to a commonly occurring problem in software design.
+*   **1. Creational Patterns:** Deal with object creation mechanisms.
+    *   *Example:* **Singleton** (only one instance exists), **Builder** (separates construction from representation), **Factory Method**.
+*   **2. Structural Patterns:** Deal with class and object composition.
+    *   *Example:* **Decorator** (adds functionality dynamically without subclassing), **Adapter** (allows incompatible interfaces to work together), **Proxy**.
+*   **3. Behavioral Patterns:** Deal with communication between objects.
+    *   *Example:* **Observer** (1-to-many state change notification), **Strategy** (interchangeable algorithms), **Command**, **Iterator**.
+*   **Why use them?** They provide a common vocabulary for developers and encapsulate best practices learned from experience.
 
-### 7. Class Diagrams (Elements & Relationships)
-*   **Elements:** Class box has three parts: Name, Attributes (properties), and Operations (methods).
-*   **Visibility Symbols:** `+` (public), `-` (private), `#` (protected).
+### 7. Class Diagrams (Details & Relationships)
+Class diagrams are the backbone of almost every object-oriented method.
+*   **Elements of a Class Box:**
+    1.  **Name:** Class name (in Bold).
+    2.  **Attributes:** Variables with visibility and data types (e.g., `- name : String`).
+    3.  **Operations:** Methods with parameters and return types (e.g., `+ calculate(id : int) : float`).
+*   **Visibility:** `+` (Public), `-` (Private), `#` (Protected).
 *   **Relationships:**
-    *   **Association:** General connection (line).
-    *   **Aggregation:** "Part-of" (Hollow diamond).
-    *   **Composition:** Strong "Part-of" (Filled diamond).
-    *   **Generalization:** Inheritance (Hollow triangle arrow).
+    *   **Association:** A general relationship (line).
+    *   **Aggregation:** A "part-of" relationship where the part can exist independently (Hollow diamond).
+    *   **Composition:** A strong "part-of" relationship (Filled diamond).
+    *   **Generalization:** Inheritance (Hollow triangle arrowhead).
+    *   **Multiplicity:** Indicates how many instances are involved (e.g., `1..*` means one or more).
 
-### 8. OOAD Concepts (Features)
-*   **Abstraction:** Hiding details, showing essential features.
-*   **Encapsulation:** Hiding data inside a class, providing access via methods.
-*   **Inheritance:** Reusing properties from a parent class.
-*   **Polymorphism:** One name, multiple forms (Overloading/Overriding).
-*   **Object Relationship Model:** A conceptual model showing how system objects associate and communicate.
+### 8. OOAD Concepts & Features
+*   **Abstraction:** Focusing on the essential features of an object while ignoring irrelevant details.
+*   **Encapsulation:** Hiding internal data and providing a public interface for access. Achieved via Private variables and Public methods.
+*   **Inheritance:** Mechanism where a subclass inherits attributes and methods from a superclass, promoting code reuse.
+*   **Polymorphism:** Ability of an operation to behave differently on different classes (One name, many forms).
+*   **Object Relationship Model (ORM):** A conceptual model that defines how system objects associate with each other (Link, Association, Multiplicity). It is developed during the analysis phase.
 
-### 9. Web Design Pyramid (Layers)
-*   **Aesthetic Design:** Visual look and feel (Graphics).
-*   **Content Design:** Organizing information objects.
-*   **Architecture Design:** Global hypermedia structure.
-*   **Navigation Design:** Defining paths between content for different users.
-*   **Interface Design:** User interaction mechanisms (UI).
-*   **Component Design:** Logic for functional elements.
+### 9. Web Design Pyramid (Design Layers)
+The WebE design pyramid consists of six distinct layers of design:
+1.  **Aesthetic Design:** Focuses on the visual "look and feel"—colors, fonts, and images.
+2.  **Content Design:** Focuses on the information objects (content) and how they are structured.
+3.  **Architectural Design:** Defines the global hypermedia structure (how pages and components relate).
+4.  **Navigation Design:** Defines the paths (links) for different user categories to move through the WebApp.
+5.  **Interface Design:** Describes the UI layout and interaction mechanisms (buttons, forms).
+6.  **Component Design:** Implements the internal processing logic of functional elements.
 
-### 10. UML Modeling Tools
-*   **Description:** Specialized software for drawing and managing UML diagrams.
+### 10. UML Modeling Tools & Applications
+UML modeling tools are software that helps in the creation and management of UML models.
 *   **Applications:**
-    1.  **Documentation:** Visual record of the system.
-    2.  **Communication:** Bridge between developers and stakeholders.
-    3.  **Forward Engineering:** Generating code (Java/C++) from diagrams.
-    4.  **Reverse Engineering:** Generating diagrams from existing source code.
-*   **Tools:** StarUML, Visual Paradigm, Rational Rose, Enterprise Architect.
+    1.  **Visual Modeling:** Easy creation of complex diagrams.
+    2.  **Documentation:** Automatically generates technical manuals.
+    3.  **Forward Engineering:** Converting models directly into code (Java, C++, etc.).
+    4.  **Reverse Engineering:** Converting existing code into UML diagrams for analysis.
+    5.  **Collaboration:** Allows teams to work together on the same model.
+*   **Popular Tools:** StarUML, Visual Paradigm, Enterprise Architect, IBM Rational Rose.
 
-### 11. Communication Diagram (Collaboration)
-*   **Definition:** An interaction diagram emphasizing the structural organization of objects.
-*   **Key points:**
-    *   Objects are nodes in a graph.
-    *   Links show the paths for communication.
-    *   Sequence numbers (1.2, 2.1) show the time order.
-*   **When to use:** When you want to see the "big picture" of object relationships rather than a strict timeline.
+### 11. Communication (Collaboration) Diagram
+*   **Definition:** An interaction diagram that emphasizes the structural organization of objects that send and receive messages.
+*   **Components:**
+    1.  **Objects:** Represented as rectangles.
+    2.  **Links:** Solid lines showing the path for communication.
+    3.  **Messages:** Arrows parallel to the links with sequence numbers.
+*   **Notations:** Sequence numbers like `1`, `1.1`, `1.2`, `2` are used to show the chronological order of messages in a non-linear layout.
+*   **Example:** A `Customer` object linked to an `Order` object. Message `1: placeOrder()` points from Customer to Order.
 
 ### 12. Object-Oriented Analysis (OOA) Model
-*   **Definition:** Translating requirements into a technical model using OO concepts.
-*   **Components:**
-    *   **Static Model:** Class and Object diagrams.
-    *   **Dynamic Model:** State, Sequence, and Activity diagrams.
-    *   **Functional Model:** Use Case diagrams.
-*   **Outcome:** A clear specification of *what* the system should do.
+The OOA model defines all the classes and their relationships required to solve the problem.
+*   **Generic Components:**
+    1.  **Class Model:** Defines the attributes and operations of each class.
+    2.  **Object Relationship Model:** Defines the associations, aggregation, and inheritance between classes.
+    3.  **Object Behavior Model:** Defines the states of objects (State Diagram) and their collaborations (Sequence Diagram).
+*   **Goal:** To build a complete representation of the problem domain that is ready for the design phase.
 
 ### 13. Object Design Process (OOD)
-*   **Steps:**
-    1.  **Refining Classes:** Adding data types and private methods.
-    2.  **Designing Algorithms:** Logic for each operation.
-    3.  **Data Management:** How objects are stored (Relational vs NoSQL).
-    4.  **Interface Design:** Finalizing the public API for the class.
-*   **Goal:** Translating "what" into "how".
+OOD is the process of defining how the software will be implemented.
+*   **Activities:**
+    1.  **Protocol Description:** Defining the public interface (API) for each class.
+    2.  **Algorithm Design:** Designing the internal logic for every method.
+    3.  **Data Structure Design:** Choosing the most efficient way to store and manage data.
+    4.  **Persistence Design:** Mapping objects to a database.
+    5.  **Review and Refinement:** Applying design patterns for better modularity.
+*   **Outcome:** A detailed blueprint that a programmer can use to write code.
 
 ### 14. Requirement Analysis for WebApps
-*   **Steps:**
-    1.  **Content Analysis:** Defining the media types (Text, Image, Video).
-    2.  **Interaction Analysis:** Use Cases for navigation.
-    3.  **Functional Analysis:** Defining computational tasks.
-    4.  **Configuration Analysis:** Target devices (Mobile, Desktop) and browsers.
+*   **Content Analysis:** Identifies the media types (text, graphics, video, audio) that will be delivered.
+*   **Interaction Analysis:** Uses Use Cases to describe how the user moves through the app and interacts with elements.
+*   **Functional Analysis:** Defines the computational tasks (e.g., "Calculate Tax", "Process Payment").
+*   **Configuration Analysis:** Describes the target browsers, OS, and hardware requirements.
+*   **Requirement Analysis:** Also considers business constraints like deadlines and legal requirements.
 
-### 15. Message Categories
-*   **Synchronous:** Caller waits for return (Blocking).
-*   **Asynchronous:** Caller continues immediately (Non-blocking).
-*   **Return:** Sends data back to caller.
-*   **Self-Message:** Object calling its own method.
-*   **Found Message:** Message with an unknown sender.
-*   **Lost Message:** Message with an unknown receiver.
+### 15. Message Categories in Interaction Diagrams
+Messages represent the communication between objects. Categories include:
+1.  **Synchronous Message:** The sender waits for a return before continuing. (Filled arrowhead).
+2.  **Asynchronous Message:** The sender continues immediately without waiting. (Open arrowhead).
+3.  **Return/Reply Message:** Sends data back to the original caller. (Dashed line).
+4.  **Self-Message:** An object calls its own method. (Looping arrow).
+5.  **Create/Destroy Messages:** Used to show the birth or death of an object during an interaction.
+6.  **Found Message:** Message where the sender is outside the scope of the diagram.
+7.  **Lost Message:** Message where the receiver is outside the scope.
