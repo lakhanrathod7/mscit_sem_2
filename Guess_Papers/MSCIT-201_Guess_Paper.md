@@ -69,73 +69,152 @@
 
 ### Q1. Basic Concepts of Object-Oriented Programming (OOP)
 **Introduction:**
-Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data (fields) and code (methods). Java is a strictly object-oriented language that follows these four pillars:
+Object-Oriented Programming (OOP) is a paradigm that organizes software design around data, or objects, rather than functions and logic. An object is a real-world entity with a state (attributes) and behavior (methods). Java implements OOP through four fundamental pillars:
 
 **1. Encapsulation (Data Hiding):**
-*   **Concept:** It is the process of wrapping data (variables) and code (methods) together as a single unit. It restricts direct access to some of an object's components.
-*   **Java Implementation:** Use `private` access modifiers for variables and provide `public` getter/setter methods to access them.
+*   **Definition:** Wrapping data (variables) and code (methods) together into a single unit (Class). It protects an object's internal state from unauthorized access.
+*   **Analogy:** A medical capsule. The medicine (data) is hidden inside the capsule (class).
+*   **Implementation:** 
+    1. Declare class variables as `private`.
+    2. Provide `public` getter and setter methods to access/modify them.
 *   **Example:**
     ```java
-    class Student {
-        private String name; // Private data
-        public void setName(String n) { this.name = n; } // Setter
-        public String getName() { return this.name; } // Getter
+    class BankAccount {
+        private double balance; // Hidden data
+        public double getBalance() { return balance; } // Accessor
+        public void deposit(double amt) { if(amt > 0) balance += amt; } // Mutator
     }
     ```
 
 **2. Inheritance (Code Reusability):**
-*   **Concept:** A mechanism where a new class (subclass) is derived from an existing class (superclass). The subclass inherits all non-private features of the parent.
-*   **Java Implementation:** Using the `extends` keyword.
-*   **Example:** `class Dog extends Animal { ... }`
+*   **Definition:** A process where one class (Subclass/Child) acquires the properties and behaviors of another class (Superclass/Parent).
+*   **Implementation:** Using the `extends` keyword.
+*   **Example:** A `Smartphone` inherits from a `BasicPhone`.
+    ```java
+    class Animal { void eat() { System.out.println("Eating..."); } }
+    class Dog extends Animal { void bark() { System.out.println("Barking..."); } }
+    ```
 
-**3. Polymorphism (Many Forms):**
-*   **Concept:** The ability of a single interface or method to perform different tasks.
+**3. Polymorphism (One Name, Many Forms):**
+*   **Definition:** The ability of an object or method to perform differently in different contexts.
 *   **Types:**
-    *   **Compile-time (Overloading):** Multiple methods with the same name but different parameters.
-    *   **Runtime (Overriding):** A subclass provides a specific implementation of a method already defined in its parent class.
-*   **Example:** `void draw()` can draw a circle or a square depending on the object type.
+    *   **Compile-time (Overloading):** Multiple methods with the same name but different parameters (number, type, or order).
+    *   **Runtime (Overriding):** A subclass provides a specific implementation for a method already defined in its parent. Java uses **Dynamic Method Dispatch** to decide which version to call at runtime.
+*   **Example:** A `Shape` class has a `draw()` method. `Circle` and `Square` override `draw()` to draw their respective shapes.
 
 **4. Abstraction (Hiding Complexity):**
-*   **Concept:** Displaying only essential features of an object to the user while hiding the background internal details.
-*   **Java Implementation:** Using `abstract` classes and `interfaces`.
-*   **Example:** When you press "accelerate" in a car, you don't need to know the combustion logic. In Java: `interface Car { void accelerate(); }`
+*   **Definition:** Showing only essential features to the user while hiding internal background details.
+*   **Implementation:** Using `abstract` classes and `interfaces`.
+*   **Example:** A TV remote. You only see the buttons (Interface) but don't know how the internal circuit (Abstraction) changes the channel.
+    ```java
+    interface Remote { void changeChannel(); }
+    ```
 
 ---
 
 ### Q2. JVM Architecture & Platform Independence
 **Introduction:**
-The Java Virtual Machine (JVM) is an engine that provides a runtime environment to drive the Java code. It is the heart of the "Write Once, Run Anywhere" (WORA) philosophy.
+The **Java Virtual Machine (JVM)** is an abstract machine that provides a runtime environment for Java bytecode execution. It is platform-dependent (different for Windows, Linux, Mac), but it enables Java programs to be platform-independent.
 
-**Architecture Components:**
-1.  **Class Loader Subsystem:** Responsible for loading `.class` files. It has three phases: **Loading** (reading files), **Linking** (Verification, Preparation, Resolution), and **Initialization**.
-2.  **Runtime Data Areas (Memory):**
-    *   **Method Area:** Stores class-level data, including static variables.
-    *   **Heap Area:** Stores all objects created during runtime. It is shared by all threads.
-    *   **Stack Area:** Stores local variables and partial results for each thread.
-    *   **PC Registers:** Contains the address of the currently executing instruction.
-    *   **Native Method Stack:** For native (C/C++) methods.
+**JVM Architecture Components:**
+1.  **Class Loader Subsystem:**
+    *   **Loading:** Reads `.class` files into memory.
+    *   **Linking:** Verifies bytecode for security, prepares static variables, and resolves symbolic references.
+    *   **Initialization:** Executes static blocks and assigns values to static variables.
+2.  **Runtime Data Areas (Memory Management):**
+    *   **Method Area:** Stores class structures, static variables, and constant pools.
+    *   **Heap Area:** The largest area, where all objects and their instance variables are stored. (Managed by Garbage Collector).
+    *   **Stack Area:** Created for every thread. Stores local variables and partial results during method execution.
+    *   **PC Registers:** Stores the address of the current instruction being executed.
+    *   **Native Method Stack:** Stores information for native methods (written in C/C++).
 3.  **Execution Engine:**
-    *   **Interpreter:** Executes bytecode line by line.
-    *   **JIT Compiler (Just-In-Time):** Compiles frequently used code into native machine code to improve performance.
-    *   **Garbage Collector:** Automatically manages memory by reclaiming space from unused objects.
+    *   **Interpreter:** Reads bytecode and executes it line-by-line. (Slow).
+    *   **JIT (Just-In-Time) Compiler:** Identifies "hot spots" (frequently used code) and compiles them into native machine code to speed up execution.
+    *   **Garbage Collector (GC):** Automatically tracks objects and deletes those that are no longer reachable by the program.
 
-**Role in Platform Independence:**
-Java code (`.java`) is compiled into an intermediate form called **Bytecode** (`.class`). Bytecode is not machine code. Every Operating System (Windows, Linux, Mac) has its own version of JVM. The same bytecode can be sent to any OS, and that OS's JVM will translate it into its own machine language. This makes Java platform-independent.
+**Platform Independence:**
+Java's slogan is **"Write Once, Run Anywhere (WORA)"**. When we compile a `.java` file, the compiler (`javac`) generates **Bytecode** (`.class` file). This bytecode is a neutral language. Any OS with a JVM installed can read this same bytecode and translate it into that OS's specific machine language. Thus, the programmer writes code once, and it runs on all systems.
 
 ---
 
-### Q3. Inheritance & The "Diamond Problem"
+### Q3. Inheritance & Types & The Diamond Problem
 **Definition:**
-Inheritance allows a class to derive features from another class, promoting code reusability and establishing a "IS-A" relationship.
+Inheritance is a mechanism that allows a new class to inherit attributes and methods from an existing class. It models the **"IS-A" relationship** (e.g., a Dog *is an* Animal).
 
-**Types of Inheritance in Java:**
-1.  **Single:** Subclass B inherits from Superclass A.
-2.  **Multilevel:** C inherits from B, and B inherits from A.
-3.  **Hierarchical:** Many subclasses (B, C, D) inherit from one parent (A).
-4.  **Multiple (Interfaces only):** One class implements multiple interfaces.
+**Types of Inheritance Supported in Java:**
+1.  **Single Inheritance:** One subclass inherits from one superclass.
+2.  **Multilevel Inheritance:** A subclass inherits from a class, which itself is a subclass of another class (A -> B -> C).
+3.  **Hierarchical Inheritance:** Multiple subclasses inherit from a single superclass (A -> B, A -> C).
 
-**Why Java doesn't support Multiple Inheritance through classes?**
-This is to avoid the **Diamond Problem**. If Class B and Class C both inherit from Class A and override a method `display()`, and then Class D inherits from both B and C, Class D would be confused about which version of `display()` to inherit. To keep Java simple and avoid this ambiguity, multiple inheritance for classes was removed.
+**The Diamond Problem (Why Multiple Inheritance is not supported for Classes):**
+Consider a scenario where Class B and Class C both inherit from Class A and override a method `display()`. If Class D inherits from both B and C, and we call `D.display()`, the compiler will not know whether to call the version from B or C. This ambiguity is called the **Diamond Problem**.
+*   **Java's Solution:** Multiple inheritance is prohibited for classes to keep the language simple and robust. However, it is fully supported through **Interfaces**, because a class can implement multiple interfaces and must provide its own single implementation of the methods, removing ambiguity.
+
+---
+
+### Q4. Java Packages: Definition, Creation, and Usage
+**Definition:**
+A **Package** is a container that groups related classes, interfaces, and sub-packages. It is used to avoid naming conflicts (e.g., two classes named `Date` in different packages) and to provide access protection.
+
+**Steps to Create and Use a User-Defined Package:**
+1.  **Define the Package:** Use the `package` keyword as the very first line in your Java source file.
+2.  **Create Classes:** Add classes inside that file.
+3.  **Directory Structure:** The file must be saved in a folder name that matches the package name.
+4.  **Compilation:** Use the command `javac -d . FileName.java`. The `-d` flag tells the compiler where to put the class file (creating the folder automatically).
+5.  **Import:** In another class, use the `import` keyword to access the package members.
+
+**Code Snippet:**
+*File 1: saved as `C:\mypack\Greeting.java`*
+```java
+package mypack; // 1. Defining package
+public class Greeting {
+    public void msg() { System.out.println("Hello Topper!"); }
+}
+```
+*File 2: saved in a different folder*
+```java
+import mypack.Greeting; // 2. Importing package
+class Test {
+    public static void main(String args[]) {
+        Greeting obj = new Greeting();
+        obj.msg();
+    }
+}
+```
+
+---
+
+### Q5. Thread Life Cycle (Thread States)
+**Introduction:**
+A thread in Java is a lightweight subprocess. The life cycle of a thread is controlled by the **JVM Thread Scheduler**. A thread can be in one of five distinct states.
+
+**1. New (Born):**
+When a thread object is created (using the `new` operator), but the `start()` method has not been called yet.
+**2. Runnable:**
+After calling `start()`, the thread is ready to run and waiting for CPU time. It is in the "ready pool".
+**3. Running:**
+The thread is currently being executed by the processor. The `run()` method is active.
+**4. Blocked / Waiting (Non-Runnable):**
+The thread is alive but not eligible to run. It moves to this state if:
+*   It is waiting for I/O.
+*   It is sleeping (via `Thread.sleep()`).
+*   It is waiting for another thread to finish (via `join()`).
+Once the waiting condition is over, it moves back to the **Runnable** state.
+**5. Terminated (Dead):**
+The thread enters this state when its `run()` method completes execution or if it is stopped due to an error.
+
+**Creating Threads:**
+1.  **Extending `Thread` Class:**
+    ```java
+    class MyThread extends Thread { public void run() { /* code */ } }
+    MyThread t = new MyThread(); t.start();
+    ```
+2.  **Implementing `Runnable` Interface (Preferred):**
+    Allows the class to inherit from another class as well.
+    ```java
+    class MyJob implements Runnable { public void run() { /* code */ } }
+    Thread t = new Thread(new MyJob()); t.start();
+    ```
 
 ---
 

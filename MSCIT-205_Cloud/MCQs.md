@@ -42,9 +42,9 @@
    Corrective controls aim to repair damage after an incident.
 
 9. IDS stands for ________. (Aug 2022)
-   A. Instruction Detection System B. Instruction Detection Service C. Instruction Detection Security D. Instruction Detection Structure
+   A. Intrusion Detection System B. Intrusion Detection Service C. Intrusion Detection Security D. Intrusion Detection Structure
    Answer: A.
-   Intrusions (Paper says Instruction) are monitored by an IDS.
+   Intrusions are monitored by an IDS.
 
 10. TLS stands for ________. (Aug 2022)
     A. Transport Level Security B. Transport Layer Security C. Transport Local Security D. Transport List Security
