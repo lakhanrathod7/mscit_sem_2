@@ -67,95 +67,99 @@
 
 ## SECTION A: LONG ANSWERS (10 MARKS EACH)
 
-### Q1. Open Source Software (OSS)
+### Q1. Open Source Software (OSS) - Definition & Analysis
 **Definition:**
-Open Source Software is software whose source code is released under a license that allows users to study, change, and distribute the software to anyone and for any purpose. It is developed in a collaborative, decentralized manner.
+Open Source Software (OSS) is software with its source code made available with a license in which the copyright holder provides the rights to study, change, and distribute the software to anyone and for any purpose.
 
 **Advantages of OSS:**
-1.  **Transparency:** Anyone can inspect the code for bugs or security holes.
-2.  **Cost-Effectiveness:** Most OSS is free to use, eliminating licensing fees like those for Windows or Oracle.
-3.  **Reliability:** Peer-review by a global community ensures that bugs are found and patched quickly.
-4.  **No Vendor Lock-in:** Users are not tied to a single company for support or updates.
-5.  **Flexibility:** Developers can customize the software to meet specific business needs.
+1.  **Transparency & Trust:** Since the code is open, anyone can verify that the software does what it claims and doesn't contain hidden malware.
+2.  **Rapid Innovation:** A global community of developers can contribute features and fix bugs much faster than a single company.
+3.  **Cost Savings:** Most OSS is free of licensing fees, which significantly reduces the Total Cost of Ownership (TCO).
+4.  **Security:** "Linus's Law" states that "given enough eyeballs, all bugs are shallow." High visibility leads to faster security patching.
+5.  **No Vendor Lock-in:** Organizations are not dependent on a single vendor's roadmap or pricing structure.
 
 **Disadvantages of OSS:**
-1.  **Learning Curve:** Some tools (like Linux command line) require more technical knowledge than proprietary alternatives.
-2.  **Lack of Formal Support:** There is no dedicated "help desk" for free software; support comes from community forums.
-3.  **Security Risks:** While peer-review helps, the fact that code is public also means hackers can study it for vulnerabilities.
-4.  **Compatibility:** Some proprietary hardware or file formats might not work perfectly with OSS.
+1.  **Support Challenges:** No centralized technical support. Businesses must rely on community forums or hire third-party experts.
+2.  **Ease of Use:** Many open-source tools are developed by techies for techies and may lack the polished user interface of commercial products.
+3.  **Hidden Costs:** Training staff to use new OSS and the cost of integration can sometimes exceed the savings on licenses.
+4.  **Compliance Risks:** Organizations must be careful to follow the specific terms of OSS licenses (like GPL or MIT) to avoid legal issues.
 
 ---
 
-### Q2. Linux File System & Permissions
-**Linux File System Hierarchy (FHS):**
-Linux follows a tree-like structure starting from the root directory (`/`).
-*   `/bin`: Essential command binaries (like `ls`, `cp`).
-*   `/etc`: System configuration files.
-*   `/home`: Personal directories for users.
-*   `/root`: Home directory for the System Administrator.
-*   `/var`: Variable data files (logs, databases).
-*   `/tmp`: Temporary files.
+### Q4. Database Operations in PHP (CRUD)
+To perform database operations in PHP, we typically use the `mysqli` extension or `PDO`. Below is the technical breakdown using `mysqli`.
 
-**Managing Permissions with `chmod`:**
-Linux assigns three types of permissions to three categories of users.
-*   **Permissions:** `r` (Read=4), `w` (Write=2), `x` (Execute=1).
-*   **Categories:** `u` (User/Owner), `g` (Group), `o` (Others).
+**1. Database Connectivity:**
+```php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "myDB";
 
-**Using Numeric Method:**
-Total value = Sum of permissions. (e.g., Read + Write = 4+2 = 6).
-*   `chmod 755 file`:
-    *   **7** (4+2+1): Owner has full access.
-    *   **5** (4+0+1): Group has Read and Execute.
-    *   **5** (4+0+1): Others have Read and Execute.
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+```
+
+**2. INSERT Operation:**
+Used to add new records to a table.
+```php
+$sql = "INSERT INTO Students (firstname, lastname) VALUES ('John', 'Doe')";
+if ($conn->query($sql) === TRUE) { echo "New record created"; }
+```
+
+**3. SELECT Operation:**
+Used to retrieve data.
+```php
+$sql = "SELECT id, firstname FROM Students";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. "<br>";
+  }
+}
+```
+
+**4. UPDATE & DELETE:**
+```php
+// Update
+$sql = "UPDATE Students SET lastname='Smith' WHERE id=1";
+// Delete
+$sql = "DELETE FROM Students WHERE id=1";
+```
 
 ---
 
-### Q3. MySQL Datatypes and Sub-languages
-**Common MySQL Datatypes:**
-1.  **Numeric:** `INT` (integers), `DECIMAL(P, D)` (precise fixed-point for money).
-2.  **String:** `CHAR` (fixed length), `VARCHAR` (variable length), `TEXT` (large text blocks).
-3.  **Date/Time:** `DATE` (YYYY-MM-DD), `DATETIME` (YYYY-MM-DD HH:MM:SS).
+### Q5. HTTP GET vs POST Comparison
+| Feature | GET Method | POST Method |
+| :--- | :--- | :--- |
+| **Data Location** | Appended to the URL in query strings. | Sent in the HTTP request body. |
+| **Visibility** | Data is visible to everyone in the URL. | Data is not visible in the URL. |
+| **Data Size** | Limited (~2048 characters). | No fixed limit (large files allowed). |
+| **Security** | Low (Never use for passwords). | Higher (Mandatory for sensitive data). |
+| **Caching** | Can be cached and bookmarked. | Cannot be cached or bookmarked. |
+| **History** | Stored in browser history. | Not stored in browser history. |
 
-**SQL Sub-languages:**
-*   **1. DDL (Data Definition Language):** Used to define the structure of the database.
-    *   *Commands:* `CREATE`, `ALTER`, `DROP`.
-    *   *Example:* `CREATE TABLE Users (id INT, name VARCHAR(50));`
-*   **2. DML (Data Manipulation Language):** Used to manage data within the tables.
-    *   *Commands:* `INSERT`, `UPDATE`, `DELETE`, `SELECT`.
-    *   *Example:* `UPDATE Users SET name='Amit' WHERE id=1;`
+**When to use:** Use **GET** for idempotent actions like searching or filtering where state doesn't change. Use **POST** for actions that modify data, such as submitting a form or uploading a file.
 
 ---
 
 ## SECTION B: SHORT ANSWERS (5 MARKS EACH)
 
-### Q2. `foreach` loop in PHP
-The `foreach` loop is specifically designed to iterate through array elements.
-**Syntax:**
-```php
-foreach ($array as $value) {
-    // code to be executed
-}
-```
-**Example:**
-```php
-$names = ["John", "Sneha", "Rahul"];
-foreach ($names as $n) {
-    echo "Name is: $n <br>";
-}
-```
+### Q4. Referential Integrity & Primary Key
+1.  **Primary Key:** A column or group of columns that uniquely identifies each row in a table. It cannot contain NULL values and must be unique across all rows.
+2.  **Referential Integrity:** A set of rules that ensures that the relationship between tables remains consistent. It ensures that a Foreign Key in one table must always point to a valid Primary Key in another table, preventing "orphan" records.
 
-### Q3. Associative Arrays
-An associative array uses **named keys** that you assign to them, instead of numeric indexes.
-**Example:**
-```php
-$salary = ["Amit" => 50000, "Sita" => 60000];
-echo "Amit's salary is: " . $salary['Amit'];
-```
-These are highly useful for representing database records where keys match column names.
-
-### Q5. Sessions vs Cookies
-*   **Cookies:** Stored on the **Client's browser**. Used for tracking and non-sensitive data like theme preferences. They have an expiration date.
-*   **Sessions:** Stored on the **Server**. Much more secure. Used for sensitive data like login IDs. A session ID is stored in a cookie on the client to link the user to the server data.
+### Q6. Role of Apache in LAMP
+Apache is the **Web Server** component of the LAMP stack.
+*   **Request Handling:** It listens for incoming HTTP requests from browsers.
+*   **Processing:** It passes PHP requests to the PHP interpreter.
+*   **Delivery:** It sends the processed HTML output back to the client's browser.
+*   **Security:** It manages access control via `.htaccess` files and SSL/TLS for encryption.
 
 ---
 
@@ -182,5 +186,5 @@ These are highly useful for representing database records where keys match colum
 6.  **True**
 7.  **False** (`/* */` is for multi-line)
 8.  **True**
-9.  **False** (POST data is hidden)
+9.  **False** (Data is hidden in body)
 10. **True**

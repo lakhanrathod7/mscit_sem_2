@@ -17,9 +17,9 @@
    Identifiers cannot start with a digit.
 
 4. Method finalize() is of ________ class. (Aug 2022)
-   A. java.lan.object B. java.awt C. java.lang D. java.util
-   Answer: C.
-   It is a method of the java.lang.Object class.
+   A. java.lang.Object B. java.awt C. java.lang D. java.util
+   Answer: A.
+   It is a protected method defined in the java.lang.Object class, which is the root of the class hierarchy.
 
 5. Two functions in the same class, having same name but different number of arguments is an example of ________. (Aug 2022)
    A. Method overriding B. Method overloading C. Abstract method D. Constructor
