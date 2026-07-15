@@ -68,80 +68,112 @@
 ## SECTION A: LONG ANSWERS (10 MARKS EACH)
 
 ### Q1. Cloud Layered Architecture
-Cloud computing is structured into layers to provide abstraction and modularity.
-
-1.  **Hardware Layer (Datacenter):** The foundation consisting of physical servers, storage, and networking hardware.
-2.  **Infrastructure Layer (IaaS):** Uses virtualization to pool hardware resources and create Virtual Machines (VMs).
-3.  **Platform Layer (PaaS):** Provides OS, databases, and application frameworks. It abstracts server management.
-4.  **Application Layer (SaaS):** The top layer where end-user software (like Gmail) resides.
-5.  **Management Layer (Cross-cutting):** Handles billing, security policies, and resource monitoring across all layers.
+Cloud computing is built on a modular layered architecture where each layer provides specific services to the one above it.
+1.  **Hardware Layer (Datacenter):** The foundation layer consisting of physical servers, storage (SAN/NAS), networking hardware (routers, switches), and power/cooling systems.
+2.  **Infrastructure Layer (Virtualization):** This layer uses a Hypervisor to create a pool of virtual compute, storage, and network resources. It is the basis of IaaS.
+3.  **Platform Layer:** Provides the OS, runtime environments (Java, Python), databases, and middleware. It allows developers to build apps without managing the underlying VMs.
+4.  **Application Layer:** The topmost layer where end-user software (SaaS) resides, such as Gmail, Office 365, or Salesforce.
+5.  **Management Layer:** A cross-cutting layer responsible for monitoring, billing, security policies, and resource metering across all other layers.
 
 ---
 
 ### Q2. NIST Essential Characteristics
-1.  **On-demand Self-service:** Users can provision resources (like CPU time) automatically without calling the provider.
-2.  **Broad Network Access:** Services are available via the internet on any device (Mobile, Laptop).
-3.  **Resource Pooling:** Multiple customers share the same physical hardware via a multi-tenant model.
-4.  **Rapid Elasticity:** Resources can be scaled up or down instantly based on demand.
-5.  **Measured Service (Pay-per-use):** Resource usage is monitored and billed based on actual consumption.
+The NIST standard defines five "must-have" characteristics for any cloud system:
+1.  **On-demand Self-service:** Users can provision resources (like server time or storage) automatically via a web portal without human intervention from the provider.
+2.  **Broad Network Access:** Services are accessible over the internet using standard protocols on any device (Mobiles, Tablets, Laptops).
+3.  **Resource Pooling:** The provider's resources are pooled to serve multiple customers using a multi-tenant model. Physical resources are dynamically assigned to virtual ones based on demand.
+4.  **Rapid Elasticity:** Resources can be scaled up or down instantly. To the user, it feels like the resources are unlimited and can be purchased in any quantity at any time.
+5.  **Measured Service:** Cloud usage is metered (like electricity). Users are billed based on exact consumption, providing transparency for both provider and consumer.
 
 ---
 
-### Q3. Cloud Service Models
-*   **IaaS (Infrastructure):** Provides virtualized hardware. *User:* System Admins. *Ex:* AWS EC2.
-*   **PaaS (Platform):** Provides a platform for building/testing apps. *User:* Developers. *Ex:* Google App Engine.
-*   **SaaS (Software):** Provides a complete application. *User:* End Users. *Ex:* Salesforce, Dropbox.
+### Q3. Cloud Service Models (SaaS, PaaS, IaaS)
+1.  **IaaS (Infrastructure as a Service):**
+    *   **What it provides:** Raw virtualized hardware (VMs, Storage, Networking).
+    *   **User Responsibility:** OS, Middleware, Apps, Data.
+    *   **User Type:** System Administrators.
+    *   **Example:** Amazon EC2, Azure VMs.
+2.  **PaaS (Platform as a Service):**
+    *   **What it provides:** A platform for development (OS + Runtime + DB).
+    *   **User Responsibility:** Application code and Data.
+    *   **User Type:** Developers.
+    *   **Example:** Google App Engine, Heroku.
+3.  **SaaS (Software as a Service):**
+    *   **What it provides:** A complete functional software application.
+    *   **User Responsibility:** Using the software.
+    *   **User Type:** End Users.
+    *   **Example:** Gmail, Dropbox, Slack.
+
+---
+
+### Q4. Cloud Deployment Models
+1.  **Public Cloud:** Owned and operated by third-party providers. Resources are shared by thousands of customers over the public internet. *Pros:* Low cost, no maintenance.
+2.  **Private Cloud:** Used exclusively by one organization. It can be physically located on-site or hosted by a provider. *Pros:* Highest security and control.
+3.  **Hybrid Cloud:** A mix of Public and Private clouds. Organizations keep sensitive data on private cloud and use public cloud for heavy workloads (Cloud Bursting).
+4.  **Community Cloud:** Shared by several organizations with similar requirements (e.g., all government hospitals or all banks).
 
 ---
 
 ### Q5. Virtualization and Hypervisors
-**Definition:**
-Virtualization is the technology that creates a software-based (virtual) version of something, such as computing, storage, or networking.
-
-**Role of Hypervisor (VMM):**
-The Hypervisor is a software layer that manages and runs virtual machines. It partitions the physical hardware among multiple guest OSs.
-
+**Definition:** Virtualization is the process of creating a software-based (virtual) version of something, such as compute, storage, or network resources.
+**Role of Hypervisor (VMM):** The Hypervisor is the software that makes virtualization possible. It sits between the hardware and the OS, partitioning the physical resources.
 **Type-1 vs Type-2 Hypervisors:**
-*   **Type-1 (Bare Metal):** Runs directly on the physical hardware. Highly efficient. Use Case: Enterprise data centers (e.g., VMware ESXi).
-*   **Type-2 (Hosted):** Runs on top of an existing Operating System. Primarily used for testing/development. (e.g., Oracle VirtualBox).
+*   **Type-1 (Bare Metal):** Runs directly on the hardware. It is highly efficient and used in enterprise datacenters. *Example:* VMware ESXi, Microsoft Hyper-V.
+*   **Type-2 (Hosted):** Runs as an application on an existing OS (like Windows). Used for testing and development. *Example:* Oracle VirtualBox, VMware Workstation.
 
 ---
 
 ## SECTION B: SHORT ANSWERS (5 MARKS EACH)
 
 ### Q1. Cloud vs Grid Computing
-*   **Control:** Grid is decentralized (many owners); Cloud is centralized (one provider).
-*   **Purpose:** Grid is for one massive task (Scientific); Cloud is for many small tasks (Business).
-*   **Billing:** Grid is usually free for research; Cloud is pay-per-use.
+*   **Grid Computing:** A distributed system for one massive scientific task. It is decentralized (many owners) and usually uses idle CPU cycles.
+*   **Cloud Computing:** A centralized service-oriented model for many small business tasks. It uses virtualization to provide dedicated resources on a pay-per-use basis.
+
+### Q2. DBaaS (Database as a Service)
+**Definition:** A managed service where the provider handles database installation, maintenance, and backups.
+**Architecture:** It consists of a **Service Interface** (for user requests), an **Orchestration Layer** (for provisioning), and a **Database Instance Layer** (where data resides).
+
+### Q3. Security Risks and Challenges
+1.  **Data Breaches:** Unauthorized access to sensitive customer data.
+2.  **Insecure APIs:** Weak interfaces that allow hackers to bypass security.
+3.  **Multi-tenancy Risks:** Data "leakage" between different customers on the same physical server.
+4.  **Data Loss:** Permanent loss of data due to provider failure or lack of backups.
+
+### Q4. Cloud Migration
+**Challenges:** High initial cost, application incompatibility, and downtime during transfer.
+**Best Practices:** Perform a pilot project, use automated migration tools, and ensure data encryption during the move.
+
+### Q5. Role of SOA in Cloud
+**Service Oriented Architecture (SOA)** allows applications to be built as a collection of independent services. In the cloud, this modularity makes it easy to scale specific parts of an application independently.
 
 ### Q6. Vertical vs Horizontal Scaling
-*   **Vertical (Scale Up):** Adding more power (CPU, RAM) to a single existing server. *Limit:* Hardware maximum.
-*   **Horizontal (Scale Out):** Adding more servers to the existing pool. *Limit:* Theoretically unlimited.
+*   **Vertical (Scale Up):** Adding more RAM or CPU to a single existing server. *Limit:* Hardware capacity.
+*   **Horizontal (Scale Out):** Adding more servers to the existing pool. *Limit:* Virtually unlimited.
 
 ---
 
 ## SECTION C: OBJECTIVE ANSWERS
 
 ### Part A: MCQs
-1.  **A.** National Institute of Standards and Technology
-2.  **B.** Virtual Machine Monitor
-3.  **C.** IaaS
-4.  **B.** PaaS
-5.  **C.** Rapid elasticity
-6.  **C.** Private
-7.  **C.** Cloud computing in general
-8.  **B.** VMM
-9.  **B.** PaaS
-10. **A.** Service Oriented Architecture
+1.  **NIST stands for:** A. National Institute of Standards and Technology
+2.  **VMM stands for:** B. Virtual Machine Monitor
+3.  **Which model provides hardware infrastructure?** C. IaaS
+4.  **Google App Engine is an example of:** B. PaaS
+5.  **Which feature refers to automatic scaling?** C. Rapid elasticity
+6.  **Cloud type providing maximum control:** C. Private
+7.  **Pay-as-you-go is a feature of:** C. Cloud computing in general
+8.  **Hypervisor is also known as:** B. VMM
+9.  **Which service allows developers to deploy apps without managing servers?** B. PaaS
+10. **SOA stands for:** A. Service Oriented Architecture
 
 ### Part B: True or False
-1.  **True**
-2.  **False** (Private is more secure)
-3.  **True**
-4.  **True**
-5.  **True**
-6.  **True**
-7.  **True**
-8.  **True**
-9.  **False**
-10. **True**
+1.  **Cloud computing reduces CAPEX.** - **True** (Converts it to OPEX)
+2.  **Public cloud is more secure than private cloud.** - **False** (Private is more secure)
+3.  **SaaS hide all underlying infrastructure from the user.** - **True**
+4.  **Virtualization is the core technology of cloud computing.** - **True**
+5.  **SLA stands for Service Level Agreement.** - **True**
+6.  **Microservices are independent small services.** - **True**
+7.  **Cloud bursting is moving to a public cloud when private is full.** - **True**
+8.  **Multi-tenancy means sharing resources among many users.** - **True**
+9.  **Grid computing is the same as Cloud computing.** - **False**
+10. **PaaS provides a development environment.** - **True**
