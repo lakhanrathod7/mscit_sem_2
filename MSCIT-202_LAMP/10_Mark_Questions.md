@@ -1,4 +1,4 @@
-# MSCIT-202: Web Application Development – LAMP
+00# MSCIT-202: Web Application Development – LAMP
 ## 10-Mark Questions (Important for Exam)
 
 1.  **⭐⭐⭐ Open Source Software:** Define Open Source Software (OSS). Discuss the advantages and disadvantages (pros and cons) of OSS. (Repeated: Aug 2022, Jan 2023, July 2025)
